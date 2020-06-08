@@ -13,3 +13,5 @@ ENV LANG en_US.UTF-8
 RUN apt-get -q -y install build-essential git gcc nano
 RUN apt-get -q -y install libssl-dev libffi-dev python-dev python python-pip python3 python3-pip
 RUN apt-get install -q -y imagemagick
+
+RUN apt install -q -y golang-go 
