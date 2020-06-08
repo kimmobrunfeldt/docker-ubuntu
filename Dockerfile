@@ -10,10 +10,15 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 
 ENV LANG en_US.UTF-8
 
+# For python 
 RUN apt-get -q -y install build-essential git gcc nano
 RUN apt-get -q -y install libssl-dev libffi-dev python-dev python python-pip python3 python3-pip
-RUN apt-get install -q -y imagemagick
 
-RUN apt install -q -y golang-go gom
+# Image and video processing
+RUN apt-get install -q -y imagemagick ffmpeg
+
+# For running https://github.com/achiku/planter
+RUN apt-get install -q -y golang-go gom
 ENV GOPATH="/root/go"
 ENV PATH="${PATH}:${GOPATH}"
+RUN apt-get install -q- y graphviz openjdk-8-jre
